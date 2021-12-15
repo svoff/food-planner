@@ -7,11 +7,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Recipes\gulaschsoppa-pa-notfars.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Recipes\gulaschsoppa-pa-notfars.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FoodPlanner.Common\FoodPlanner.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MockData\" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+    <PackageReference Include="YamlDotNet" Version="11.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Recipes\gulaschsoppa-pa-notfars.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Recipes\gulaschsoppa-pa-notfars.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Recipes\spaghetti-carbonara-morrone.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Recipes\spaghetti-carbonara-morrone.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Recipes\spaghetti-carbonara-morrone.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
