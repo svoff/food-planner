@@ -1,2 +1,2 @@
 # food-planner
-Food planner (test project)
+Food planner (just for fun and testing new frameworks)
