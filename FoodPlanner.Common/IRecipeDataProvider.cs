@@ -4,6 +4,6 @@
     {
         IEnumerable<Recipe> FindRecipes(string searchString);
 
-        string? GetDescriptionText(string descriptionFile);
+        string? GetRecipeUrl(Recipe recipe);
     }
 }

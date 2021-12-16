@@ -6,17 +6,19 @@ namespace FoodPlanner.ViewModel
     public class RecipeNavigationViewModel : ViewModelBase
     {
         private readonly IRecipeDataProvider _recipeDataProvider;
-        private Recipe _selectedRecipe;
-        private string _searchFilter = string.Empty;
+        private Recipe? _selectedRecipe;
+        private string _searchFilter;
 
         public RecipeNavigationViewModel(IRecipeDataProvider recipeDataProvider)
         {
             _recipeDataProvider = recipeDataProvider;
+            _selectedRecipe = null;
+            _searchFilter = String.Empty;
         }
 
         public ObservableCollection<Recipe> Recipes { get; } = new();
 
-        public Recipe SelectedRecipe
+        public Recipe? SelectedRecipe
         {
             get { return _selectedRecipe; }
 
@@ -27,6 +29,7 @@ namespace FoodPlanner.ViewModel
                     _selectedRecipe = value;
                     RaisePropertyChanged();
                     RaisePropertyChanged(nameof(IsRecipeSelected));
+                    RaisePropertyChanged(nameof(SelectedRecipeUrl));
                 }
             }
         }
@@ -36,6 +39,7 @@ namespace FoodPlanner.ViewModel
         public string SearchFilter
         {
             get { return _searchFilter; }
+
             set
             {
                 if (_searchFilter != value)
@@ -46,12 +50,18 @@ namespace FoodPlanner.ViewModel
             }
         }
 
-        public string GetDescriptionTextForRecipe(Recipe recipe)
+        public string SelectedRecipeUrl
         {
-            return _recipeDataProvider.GetDescriptionText(recipe.DescriptionFile);
+            get
+            {
+                if (_selectedRecipe is Recipe r && _recipeDataProvider.GetRecipeUrl(r) is string url)
+                    return url;
+                else
+                    return "http://www.microsoft.com";
+            }
         }
 
-        public void Load()
+        public void LoadRecipes()
         {
             var recipes = _recipeDataProvider.FindRecipes(SearchFilter);
 

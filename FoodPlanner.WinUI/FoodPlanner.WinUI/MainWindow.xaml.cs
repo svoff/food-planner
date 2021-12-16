@@ -1,4 +1,5 @@
 ﻿using FoodPlanner.Data;
+using FoodPlanner.ViewModel;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -27,8 +28,18 @@ namespace FoodPlanner.WinUI
         public MainWindow()
         {
             this.InitializeComponent();
-            var db = new RecipeDatabase();
-            db.FindRecipes("");
+            ViewModel = new RecipeNavigationViewModel(new RecipeDatabase());
+            this.Activated += MainWindow_Activated;
+        }
+
+        public RecipeNavigationViewModel ViewModel { get; }
+
+        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
+        {
+            if (ViewModel.Recipes.Count == 0)
+            {
+                ViewModel.LoadRecipes();
+            }
         }
     }
 }

@@ -5,20 +5,26 @@ namespace FoodPlanner.Data
 {
     public class RecipeDatabase : IRecipeDataProvider
     {
-        public RecipeDatabase()
+        public RecipeDatabase() 
         {
-
+            RecipesFolder = ConfigurationManager.AppSettings["RecipesFolder"] ?? string.Empty;
         }
+
+        private string RecipesFolder { get; set; }
+
+        private List<Recipe> AllRecipes { get; set; } = new();
 
         public IEnumerable<Recipe> FindRecipes(string searchString)
         {
-            var folder = ConfigurationManager.AppSettings["RecipesFolder"];
-            return string.IsNullOrEmpty(folder) ? 
-            {
-                Directory.GetFiles(folder, "*.yaml").Select(f => RecipeIO.ReadRecipeFile(f)).Where(r => IsMatch(r, searchString))
+            if (AllRecipes.Count == 0)
+            {                
+                if (!string.IsNullOrEmpty(RecipesFolder))
+                {
+                    AllRecipes = Directory.GetFiles(RecipesFolder, "*.yaml").Select(f => RecipeIO.ReadRecipeFile(f)).ToList();
+                }
             }
-            Console.WriteLine(folder);
-            return Enumerable.Empty<Recipe>();
+
+            return AllRecipes.Where(r => IsMatch(r, searchString));
         }
 
         private bool IsMatch(Recipe arg, string searchString)
@@ -26,9 +32,18 @@ namespace FoodPlanner.Data
             return true;
         }
 
-        public string? GetDescriptionText(string descriptionFile)
+        public string? GetRecipeUrl(Recipe recipe)
         {
-            throw new NotImplementedException();
+            // Note: leave dealing with missing descriptions to the UI
+            // TODO: add cache if sluggish
+
+            if (!string.IsNullOrEmpty(RecipesFolder) && recipe.DescriptionFile is string file)
+            {
+                string path = Path.Combine(RecipesFolder, file);
+                return File.Exists(path) ? path : null;
+            }
+
+            return null;
         }
     }
 }

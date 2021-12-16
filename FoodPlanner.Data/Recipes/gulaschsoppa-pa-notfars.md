@@ -4,7 +4,7 @@ Mustig gulaschsoppa med färs, potatis och morötter. Den blir ännu godare om d
 
 Receptet är från [Viktväktarna](https://www.viktvaktarna.se/se/) och finns på [Köket.se](https://www.koket.se/gulaschsoppa-pa-notfars)
 
-![God gulaschsoppa!](gulaschsoppa-pa-notfars.png "Gulaschsoppa på nötfärs")
+![God gulaschsoppa!](file:///C:/Users/svmo/source/play/food-planner/FoodPlanner.Data/Recipes/gulaschsoppa-pa-notfars.png "Gulaschsoppa på nötfärs")
 
 ## Gör så här
 
