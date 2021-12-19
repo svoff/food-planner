@@ -9,58 +9,16 @@ namespace FoodPlanner.ViewModel
     {
         private readonly IRecipeDataProvider _recipeDataProvider;
         private Recipe? _selectedRecipe;
-        private WeekPlanItem? _selectedWeekPlanItem;
 
-        // Null means don't search, empty string means match all recipes.
-        private string? _searchString;
-
-        public MainViewModel(IRecipeDataProvider recipeDataProvider, string[] weekDays)
+        public MainViewModel(IRecipeDataProvider recipeDataProvider)
         {
             _recipeDataProvider = recipeDataProvider;
             _selectedRecipe = null;
-            _selectedWeekPlanItem = null;
-            _searchString = null;
-
-            WeekPlanItems.Clear();
-            for (int i = 0; i < 7; ++i)
-            {
-                WeekPlanItems.Add(new WeekPlanItem(weekDays[i], "boobo", null));
-            }
         }
 
-        public record WeekPlanItem(string WeekDay, string SearchString, Recipe? SelectedRecipe);
-
-        public ObservableCollection<WeekPlanItem> WeekPlanItems { get; } = new();
-
-        public ObservableCollection<Recipe> Recipes { get; } = new();
+        public List<Recipe> Recipes { get; } = new();
 
         public ObservableCollection<string> Ingredients { get; } = new();
-
-        public WeekPlanItem? SelectedWeekPlanItem
-        {
-            get { return _selectedWeekPlanItem; }
-
-            set
-            {
-                if (_selectedWeekPlanItem != value)
-                {
-                    _selectedWeekPlanItem = value;
-                    RaisePropertyChanged();
-
-                    if (value is not null)
-                    {
-                        SearchString = value.SearchString;
-                        SelectedRecipe = value.SelectedRecipe;
-                    }
-                    else
-                    {
-                        SearchString = null;
-                        SelectedRecipe = null;
-                    }
-
-                }
-            }
-        }
 
         public Recipe? SelectedRecipe
         {
@@ -81,20 +39,6 @@ namespace FoodPlanner.ViewModel
         }
 
         public bool IsRecipeSelected => SelectedRecipe != null;
-
-        public string? SearchString
-        {
-            get { return _searchString; }
-
-            set
-            {
-                if (_searchString != value)
-                {
-                    _searchString = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
 
         public string SelectedRecipeUrl
         {
@@ -121,12 +65,12 @@ namespace FoodPlanner.ViewModel
 
         public void LoadRecipes()
         {
-            var recipes = _recipeDataProvider.FindRecipes(SearchString);
+            var recipes = _recipeDataProvider.FindRecipes(string.Empty);
 
             Recipes.Clear();
             foreach (var recipe in recipes)
             {
-                Recipes.Add(recipe);    
+                Recipes.Add(recipe);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using FoodPlanner.Data;
+﻿using FoodPlanner.Common;
+using FoodPlanner.Data;
 using FoodPlanner.ViewModel;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -30,21 +31,7 @@ namespace FoodPlanner.WinUI
         public MainWindow()
         {
             this.InitializeComponent();
-            var firstDay = ConfigurationManager.AppSettings["FirstDayOfWeekPlan"] ?? "Saturday";
-
-            var weekDays = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-            var offset = weekDays.IndexOf(firstDay);
-            Debug.Assert(offset >= 0);
-
-            var localizedWeekdays = new List<string>();
-            for (int i = 0; i < 7; ++i)
-            {
-                var day = weekDays[(i + offset) % 7];
-                var localizedDay = Application.Current.Resources[day] as string;
-                Debug.Assert(localizedDay != null);
-                localizedWeekdays.Add(localizedDay);
-            }
-            ViewModel = new MainViewModel(new RecipeDatabase(), localizedWeekdays.ToArray());
+            ViewModel = new MainViewModel(new RecipeDatabase());
             this.Activated += MainWindow_Activated;
         }
 
@@ -61,6 +48,35 @@ namespace FoodPlanner.WinUI
         private void AssignButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Weekday_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                sender.ItemsSource = ViewModel.Recipes;
+            }
+        }
+
+        private void Weekday_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            if (args.ChosenSuggestion is Recipe r)
+            {
+                ViewModel.SelectedRecipe = r;
+            }
+            else
+            {
+                // Use args.QueryText to determine what to do.
+            }
+        }
+
+        private void Weekday_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            if (args.SelectedItem is Recipe r)
+            {
+                sender.Text = r.Name;
+                ViewModel.SelectedRecipe = r;
+            }
         }
     }
 }
