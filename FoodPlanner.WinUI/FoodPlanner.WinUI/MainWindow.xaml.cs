@@ -9,6 +9,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -28,7 +30,21 @@ namespace FoodPlanner.WinUI
         public MainWindow()
         {
             this.InitializeComponent();
-            ViewModel = new MainViewModel(new RecipeDatabase());
+            var firstDay = ConfigurationManager.AppSettings["FirstDayOfWeekPlan"] ?? "Saturday";
+
+            var weekDays = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+            var offset = weekDays.IndexOf(firstDay);
+            Debug.Assert(offset >= 0);
+
+            var localizedWeekdays = new List<string>();
+            for (int i = 0; i < 7; ++i)
+            {
+                var day = weekDays[(i + offset) % 7];
+                var localizedDay = Application.Current.Resources[day] as string;
+                Debug.Assert(localizedDay != null);
+                localizedWeekdays.Add(localizedDay);
+            }
+            ViewModel = new MainViewModel(new RecipeDatabase(), localizedWeekdays.ToArray());
             this.Activated += MainWindow_Activated;
         }
 

@@ -7,15 +7,15 @@
     <x:String x:Key="UpArrow">&#x02C4;</x:String>
     <x:String x:Key="DownArrow">&#x02C5;</x:String>
 
+    <x:String x:Key="WeekPlanHeader">Veckans mat</x:String>
     
-    <x:String x:Key="Eat on">Ät på</x:String>
-    <x:String x:Key="Monday">måndag</x:String>
-    <x:String x:Key="Tuesday">tisdag</x:String>
-    <x:String x:Key="Wednesday">onsdag</x:String>
-    <x:String x:Key="Thursday">torsdag</x:String>
-    <x:String x:Key="Friday">fredag</x:String>
-    <x:String x:Key="Saturday">lördag</x:String>
-    <x:String x:Key="Sunday">söndag</x:String>
+    <x:String x:Key="Monday">må:</x:String>
+    <x:String x:Key="Tuesday">ti:</x:String>
+    <x:String x:Key="Wednesday">on:</x:String>
+    <x:String x:Key="Thursday">to:</x:String>
+    <x:String x:Key="Friday">fr:</x:String>
+    <x:String x:Key="Saturday">lö:</x:String>
+    <x:String x:Key="Sunday">sö:</x:String>
     
 
 </ResourceDictionary>
