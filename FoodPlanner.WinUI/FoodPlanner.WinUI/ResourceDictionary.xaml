@@ -1,0 +1,21 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FoodPlanner.WinUI">
+
+    <!--Icon characters for arrow buttons-->
+    <x:String x:Key="UpArrow">&#x02C4;</x:String>
+    <x:String x:Key="DownArrow">&#x02C5;</x:String>
+
+    
+    <x:String x:Key="Eat on">Ät på</x:String>
+    <x:String x:Key="Monday">måndag</x:String>
+    <x:String x:Key="Tuesday">tisdag</x:String>
+    <x:String x:Key="Wednesday">onsdag</x:String>
+    <x:String x:Key="Thursday">torsdag</x:String>
+    <x:String x:Key="Friday">fredag</x:String>
+    <x:String x:Key="Saturday">lördag</x:String>
+    <x:String x:Key="Sunday">söndag</x:String>
+    
+
+</ResourceDictionary>

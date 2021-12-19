@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodPlanner.Common", "FoodP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodPlanner.Data", "FoodPlanner.Data\FoodPlanner.Data.csproj", "{A55D634E-A206-4F5B-B5B1-ACB8651ABB84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodPlanner.Data.Tests", "FoodPlanner.Data.Tests\FoodPlanner.Data.Tests.csproj", "{A5D81D3F-1737-4171-9854-17C53EA8E3AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodPlanner.Data.Tests", "FoodPlanner.Data.Tests\FoodPlanner.Data.Tests.csproj", "{A5D81D3F-1737-4171-9854-17C53EA8E3AA}"
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "FoodPlanner.WinUI (Package)", "FoodPlanner.WinUI\FoodPlanner.WinUI (Package)\FoodPlanner.WinUI (Package).wapproj", "{796892B0-BA17-4F4C-9C3F-199A457A0E0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodPlanner.WinUI", "FoodPlanner.WinUI\FoodPlanner.WinUI\FoodPlanner.WinUI.csproj", "{F8489D59-695C-4D7D-ACC8-55E65827088C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodPlanner.WinUI", "FoodPlanner.WinUI\FoodPlanner.WinUI\FoodPlanner.WinUI.csproj", "{F8489D59-695C-4D7D-ACC8-55E65827088C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodPlanner.ViewModel", "FoodPlanner.ViewModel\FoodPlanner.ViewModel.csproj", "{FA4BEC5A-60AC-4AE1-B181-CA1D7625FE8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodPlanner.ViewModel", "FoodPlanner.ViewModel\FoodPlanner.ViewModel.csproj", "{FA4BEC5A-60AC-4AE1-B181-CA1D7625FE8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C649363-A213-4C7C-BB4C-757B77391CEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

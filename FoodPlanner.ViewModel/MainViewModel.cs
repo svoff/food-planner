@@ -3,13 +3,13 @@ using System.Collections.ObjectModel;
 
 namespace FoodPlanner.ViewModel
 {
-    public class RecipeNavigationViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
         private readonly IRecipeDataProvider _recipeDataProvider;
         private Recipe? _selectedRecipe;
         private string _searchFilter;
 
-        public RecipeNavigationViewModel(IRecipeDataProvider recipeDataProvider)
+        public MainViewModel(IRecipeDataProvider recipeDataProvider)
         {
             _recipeDataProvider = recipeDataProvider;
             _selectedRecipe = null;
@@ -17,6 +17,8 @@ namespace FoodPlanner.ViewModel
         }
 
         public ObservableCollection<Recipe> Recipes { get; } = new();
+
+        public ObservableCollection<string> Ingredients { get; } = new();
 
         public Recipe? SelectedRecipe
         {
@@ -27,9 +29,11 @@ namespace FoodPlanner.ViewModel
                 if (_selectedRecipe != value)
                 {
                     _selectedRecipe = value;
+                    UpdateIngredients();
                     RaisePropertyChanged();
                     RaisePropertyChanged(nameof(IsRecipeSelected));
                     RaisePropertyChanged(nameof(SelectedRecipeUrl));
+                    RaisePropertyChanged(nameof(Ingredients));
                 }
             }
         }
@@ -58,6 +62,18 @@ namespace FoodPlanner.ViewModel
                     return url;
                 else
                     return "http://www.microsoft.com";
+            }
+        }
+
+        private void UpdateIngredients()
+        {
+            Ingredients.Clear();
+            if (_selectedRecipe != null)
+            {
+                foreach (var s in _selectedRecipe.Ingredients)
+                {
+                    Ingredients.Add(s);
+                }
             }
         }
 

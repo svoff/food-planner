@@ -28,11 +28,11 @@ namespace FoodPlanner.WinUI
         public MainWindow()
         {
             this.InitializeComponent();
-            ViewModel = new RecipeNavigationViewModel(new RecipeDatabase());
+            ViewModel = new MainViewModel(new RecipeDatabase());
             this.Activated += MainWindow_Activated;
         }
 
-        public RecipeNavigationViewModel ViewModel { get; }
+        public MainViewModel ViewModel { get; }
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
@@ -40,6 +40,11 @@ namespace FoodPlanner.WinUI
             {
                 ViewModel.LoadRecipes();
             }
+        }
+
+        private void AssignButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
