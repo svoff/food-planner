@@ -3,20 +3,6 @@ using FoodPlanner.Data;
 using FoodPlanner.ViewModel;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -45,11 +31,6 @@ namespace FoodPlanner.WinUI
             }
         }
 
-        private void AssignButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Weekday_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
@@ -66,7 +47,7 @@ namespace FoodPlanner.WinUI
             }
             else
             {
-                // Use args.QueryText to determine what to do.
+                ViewModel.TrySelectRecipe(args.QueryText);
             }
         }
 

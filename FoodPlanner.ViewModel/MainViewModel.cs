@@ -63,6 +63,20 @@ namespace FoodPlanner.ViewModel
             }
         }
 
+        public bool TrySelectRecipe(string? recipeName)
+        {
+            if (recipeName is not null && Recipes.FirstOrDefault(r => r.Name == recipeName) is Recipe r)
+            {
+                SelectedRecipe = r;
+                return true;
+            }
+            else
+            {
+                SelectedRecipe = null;
+                return false;
+            }
+        }
+
         public void LoadRecipes()
         {
             var recipes = _recipeDataProvider.FindRecipes(string.Empty);

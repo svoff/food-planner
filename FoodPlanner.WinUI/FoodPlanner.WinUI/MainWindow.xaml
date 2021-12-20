@@ -42,7 +42,7 @@
         <!--Week plan and recipe search-->
         <Grid Grid.Row="1" Padding="20">
             <Grid.RowDefinitions>
-                <!--Title row and 7 rows for the weekdays-->
+                <!--Title row and 7 rows for the weekdays, and spacers in between-->
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
@@ -62,31 +62,31 @@
 
             <TextBlock Text="{StaticResource WeekPlanHeader}" FontSize="18" FontStyle="Italic" />
 
-            <AutoSuggestBox Header="Lördag" Grid.Row="2" x:Name="Weekday1" QueryIcon="Find" 
+            <AutoSuggestBox Header="{StaticResource Saturday}" Grid.Row="2" x:Name="Weekday1" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
                             DisplayMemberPath="Name" TextMemberPath="Name" UpdateTextOnSelect="True"/>
 
-            <AutoSuggestBox Header="Söndag" Grid.Row="4" x:Name="Weekday2" QueryIcon="Find" 
+            <AutoSuggestBox Header="{StaticResource Sunday}" Grid.Row="4" x:Name="Weekday2" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
                             DisplayMemberPath="Name" TextMemberPath="Name"/>
             
-            <AutoSuggestBox Header="Måndag" Grid.Row="6" x:Name="Weekday3" QueryIcon="Find" 
+            <AutoSuggestBox Header="{StaticResource Monday}" Grid.Row="6" x:Name="Weekday3" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
                             DisplayMemberPath="Name" TextMemberPath="Name"/>
             
-            <AutoSuggestBox Header="Tisdag" Grid.Row="8" x:Name="Weekday4" QueryIcon="Find" 
+            <AutoSuggestBox Header="{StaticResource Tuesday}" Grid.Row="8" x:Name="Weekday4" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
                             DisplayMemberPath="Name" TextMemberPath="Name"/>
 
-            <AutoSuggestBox Header="Onsdag" Grid.Row="10" x:Name="Weekday5" QueryIcon="Find" 
+            <AutoSuggestBox Header="{StaticResource Wednesday}" Grid.Row="10" x:Name="Weekday5" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
                             DisplayMemberPath="Name" TextMemberPath="Name"/>
 
-            <AutoSuggestBox Header="Torsdag" Grid.Row="12" x:Name="Weekday6" QueryIcon="Find" 
+            <AutoSuggestBox Header="{StaticResource Thursday}"  Grid.Row="12" x:Name="Weekday6" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
                             DisplayMemberPath="Name" TextMemberPath="Name"/>
 
-            <AutoSuggestBox Header="Fredag" Grid.Row="14" x:Name="Weekday7" QueryIcon="Find" 
+            <AutoSuggestBox Header="{StaticResource Friday}" Grid.Row="14" x:Name="Weekday7" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
                             DisplayMemberPath="Name" TextMemberPath="Name"/>
 
