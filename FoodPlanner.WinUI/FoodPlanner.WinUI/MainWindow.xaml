@@ -40,7 +40,8 @@
         </Border>
 
         <!--Week plan and recipe search-->
-        <Grid Grid.Row="1" Padding="20">
+        <ScrollViewer Grid.Row="1" >
+        <Grid Padding="20">
             <Grid.RowDefinitions>
                 <!--Title row and 7 rows for the weekdays, and spacers in between-->
                 <RowDefinition Height="Auto"/>
@@ -91,6 +92,7 @@
                             DisplayMemberPath="Name" TextMemberPath="Name"/>
 
         </Grid>
+        </ScrollViewer>
 
         <!--Recipe Description-->
         <Border Grid.Row="1" Grid.Column="1" Background="#F05A28"
@@ -103,7 +105,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="10"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="{StaticResource Ingredients}" FontSize="18" FontStyle="Italic"/>
