@@ -20,7 +20,7 @@ namespace FoodPlanner.Data
             {                
                 if (!string.IsNullOrEmpty(RecipesFolder))
                 {
-                    AllRecipes = Directory.GetFiles(RecipesFolder, "*.yaml").Select(f => RecipeIO.ReadRecipeFile(f)).ToList();
+                    AllRecipes = Directory.GetFiles(RecipesFolder, "*.yaml", SearchOption.AllDirectories).Select(f => RecipeIO.ReadRecipeFile(f)).ToList();
                 }
             }
 

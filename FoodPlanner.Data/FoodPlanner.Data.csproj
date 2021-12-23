@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Recipes\gulaschsoppa-pa-notfars.html">
+    <Content Include="Recipes\Gulash\gulaschsoppa-pa-notfars.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -26,19 +26,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Recipes\gulaschsoppa-pa-notfars.PNG">
+    <None Update="Recipes\Gulash\gulaschsoppa-pa-notfars.PNG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Recipes\gulaschsoppa-pa-notfars.yaml">
+    <None Update="Recipes\Gulash\gulaschsoppa-pa-notfars.yaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Recipes\spaghetti-carbonara-morrone.md">
+    <None Update="Recipes\Carbonara\spaghetti-carbonara-morrone.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Recipes\spaghetti-carbonara-morrone.PNG">
+    <None Update="Recipes\Carbonara\spaghetti-carbonara-morrone.PNG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Recipes\spaghetti-carbonara-morrone.yaml">
+    <None Update="Recipes\Carbonara\spaghetti-carbonara-morrone.yaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

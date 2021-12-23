@@ -15,10 +15,10 @@ namespace FoodPlanner.Data
         {
             var text = File.ReadAllText(filePath);
 
-            return CreateRecipeFromYaml(text);
+            return CreateRecipeFromYaml(text, Path.GetDirectoryName(filePath) ?? string.Empty);
         }
 
-        public static Recipe CreateRecipeFromYaml(string yamlText)
+        public static Recipe CreateRecipeFromYaml(string yamlText, string dirName)
         {
             using (var reader = new StringReader(yamlText))
             {
@@ -29,7 +29,7 @@ namespace FoodPlanner.Data
                 ValidateAllExpectedKeysArePresent(root, NameKey, DescriptionKey, ServingsKey, IngredientsKey, TagsKey);
 
                 var name = GetStringValueFromMapping(root, NameKey);
-                var description = GetStringValueFromMapping(root, DescriptionKey);
+                var description = Path.Combine(dirName, GetStringValueFromMapping(root, DescriptionKey));
                 var servings = GetIntValueFromMapping(root, ServingsKey);
                 var ingredients = GetStringArrayValueFromMapping(root, IngredientsKey);
                 var tags = GetStringArrayValueFromMapping(root, TagsKey);
