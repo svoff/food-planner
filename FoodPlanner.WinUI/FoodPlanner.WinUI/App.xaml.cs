@@ -17,6 +17,7 @@ namespace FoodPlanner.WinUI
         public App()
         {
             this.InitializeComponent();
+            App.Current.RequestedTheme = ApplicationTheme.Dark;
         }
 
         /// <summary>

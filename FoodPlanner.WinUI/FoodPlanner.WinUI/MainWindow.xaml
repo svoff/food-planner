@@ -30,20 +30,20 @@
         <Border Grid.ColumnSpan="5" Background="#F05A28">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Image Source="/Images/food-svgrepo-com.png" Margin="20"/>
-                <TextBlock Text="Matplaneraren" FontFamily="Jokerman" FontSize="60" VerticalAlignment="Center"/>
+                <TextBlock Text="Matplaneraren" Foreground="Black"  FontFamily="Jokerman" FontSize="60" VerticalAlignment="Center"/>
             </StackPanel>
         </Border>
 
         <!--Footer-->
         <Border Grid.ColumnSpan="5" Grid.Row="2" Background="#F05A28" Padding="5">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="All is well" VerticalAlignment="Center"/>
+                <TextBlock Text="All is well" Foreground="Black" VerticalAlignment="Center"/>
             </StackPanel>
         </Border>
 
         <!--Week plan and recipe search-->
-        <ScrollViewer Grid.Row="1" >
-        <Grid Padding="20">
+        <ScrollViewer Grid.Row="1">
+            <Grid Padding="20">
             <Grid.RowDefinitions>
                 <!--Title row and 7 rows for the weekdays, and spacers in between-->
                 <RowDefinition Height="Auto"/>
@@ -70,8 +70,8 @@
                             DisplayMemberPath="Name" TextMemberPath="Name" UpdateTextOnSelect="True"/>
 
             <AutoSuggestBox Header="{StaticResource Sunday}" Grid.Row="4" x:Name="Weekday2" QueryIcon="Find" 
-                            TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
-                            DisplayMemberPath="Name" TextMemberPath="Name"/>
+                        TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
+                        DisplayMemberPath="Name" TextMemberPath="Name"/>
             
             <AutoSuggestBox Header="{StaticResource Monday}" Grid.Row="6" x:Name="Weekday3" QueryIcon="Find" 
                             TextChanged="Weekday_TextChanged" QuerySubmitted="Weekday_QuerySubmitted" SuggestionChosen="Weekday_SuggestionChosen"
@@ -99,7 +99,7 @@
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="#1b1813"/>
 
         <!--Recipe Description-->
-        <Border Grid.Row="1" Grid.Column="2" Background="black" Padding="20,0,0,0"
+        <Border Grid.Row="1" Grid.Column="2" Padding="20,0,0,0"
                 Visibility="{x:Bind ViewModel.IsRecipeSelected,Mode=OneWay}">
             <controls:WebView2 x:Name="RecipeDesciptionView" Source="{x:Bind ViewModel.SelectedRecipeUrl,Mode=OneWay}"/>
         </Border>

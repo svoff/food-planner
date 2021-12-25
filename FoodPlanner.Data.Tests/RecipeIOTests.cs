@@ -9,10 +9,10 @@ namespace FoodPlanner.Data.Tests
         [TestMethod]
         public void TestReadValidYamlText()
         {
-            var recipe = RecipeIO.CreateRecipeFromYaml(ValidSpaghetti);
+            var recipe = RecipeIO.CreateRecipeFromYaml(ValidSpaghetti, "./");
             Assert.IsNotNull(recipe);
             Assert.AreEqual(recipe.Name, "Spaghetti carbonara (I Morrone)");
-            Assert.AreEqual(recipe.DescriptionFile, "spaghetti-carbonara-morrone.md");
+            Assert.AreEqual(recipe.DescriptionFile, "./spaghetti-carbonara-morrone.md");
             Assert.AreEqual(recipe.Servings, 4);
             Assert.AreEqual(recipe.Ingredients.Length, 6);
             Assert.AreEqual(recipe.Ingredients[0], "400 g spaghetti");
